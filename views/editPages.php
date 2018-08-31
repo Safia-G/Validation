@@ -34,11 +34,23 @@ $reponse = $bdd->query('SELECT * FROM `pages` LIMIT 50');
 while ($donnees = $reponse->fetch())
 {
 ?>
-  <div style="display:inline-flex;">
-    <h3 style="margin-left:40px;">Page n°: <?php echo $donnees['id']; ?></h3>
-    <h3 style="margin-left:40px;">Titre : <?php echo $donnees['title']; ?></h3>
-    <h3 style="margin-left:40px;">Contenu : <?php echo $donnees['content']; ?></h3>
-  </div>
+<table style="border: 1px solid black">
+  <thead>
+  <tr style="border: 1px solid black">
+  <th><h3 style="margin-left:20px">Page n°</h3></th>
+  <th><h3 style="margin-left:100px">Titre</h3></th>
+  <th><h3 style="margin-left:100px">Contenu</h3></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><p style="text-align:center; padding:50px"><?php echo $donnees['id']; ?></p></td>
+    <td><p style="text-align:center; padding:50px"><?php echo $donnees['title']; ?></p></td>
+    <td><p style="text-align:center; padding:50px"><?php echo $donnees['content']; ?></p></td>
+  </tr>
+</tbody>
+</table>
+
   <?php
   echo "<td>";
       echo "<a href='update.php?id=". $donnees['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
